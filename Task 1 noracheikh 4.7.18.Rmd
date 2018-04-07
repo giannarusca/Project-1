@@ -1,0 +1,58 @@
+---
+title: "Task 1 4.7.18"
+author: "N. Cheikh"
+date: "April 5, 2018"
+output: html_document
+---
+Step 1 Upload and Merge Datasets
+```{r setup, include=FALSE}
+#1. Upload data files to desktop
+#2. Import datasets into R and label
+subject_test <- read.table("~/Desktop/subject_test.txt")
+subject_train <- read.table("~/Desktop/subject_train.txt")
+X_test <- read.table("~/Desktop/X_test.txt")
+X_train <- read.table("~/Desktop/X_train.txt")
+y_test <- read.table("~/Desktop/y_test.txt")
+y_train <- read.table("~/Desktop/y_train.txt")
+features <- read.table("~/Desktop/features.txt")
+#3 Rename variables in subject and y data frames, so V1 from X data frames is not confused with the V1 from the subject and y data frames
+colnames(subject_train)[colnames(subject_train)=="V1"] <- "Subject"
+colnames(subject_test)[colnames(subject_test)=="V1"] <- "Subject"
+colnames(y_test)[colnames(y_test)=="V1"] <- "y"
+colnames(y_train)[colnames(y_train)=="V1"] <- "y"
+#Change the activity labels of y dataframes
+y_test1 <-y_test #create new dataframe for y_test
+y_test1$y[y_test1$y==1]<- "WALKING"
+y_test1$y[y_test1$y==2]<- "WALKING_UPSTAIRS"
+y_test1$y[y_test1$y==3]<- "WALKING_DOWNSTAIRS"
+y_test1$y[y_test1$y==4]<- "SITTING"
+y_test1$y[y_test1$y==5]<- "STANDING"
+y_test1$y[y_test1$y==6]<- "LAYING"
+
+y_train1 <- y_train # create new datafram for y_train
+y_train1$y[y_train1$y==1]<- "WALKING"
+y_train1$y[y_train1$y==2]<- "WALKING_UPSTAIRS"
+y_train1$y[y_train1$y==3]<- "WALKING_DOWNSTAIRS"
+y_train1$y[y_train1$y==4]<- "SITTING"
+y_train1$y[y_train1$y==5]<- "STANDING"
+y_train1$y[y_train1$y==6]<- "LAYING"
+#4 Create new dataframe of features, named features1 and remove the first column of the dataframe, features1
+features1 <- features
+features1$V1 = NULL
+# Create new dataframe of features, which is the transpose of features1, labeled features2
+features2 <- t(features1)
+
+#Create new dataframes from X_test and X_train, labeled X_test1 and X_train1 respectively
+X_test1 <- X_test
+X_train1 <- X_train
+#Change the column names of X_test1 and X_train1 with features2
+colnames(X_test1) <- features2[1, ]
+colnames(X_train1) <- features2[1, ]
+#5 Combine the Columns. Combine the test data frames and the train data frames seperately and label
+test <- cbind( subject_test, y_test1, X_test1)
+train <- cbind(subject_train, y_train1, X_train1)
+#6 Combine the Rows. Combine the dataframes, test and train and label 'Task1.1'
+Task1.1 <- rbind(test, train)
+#7 Save Task1.1 data frame as a csv file
+write.csv(Task1.1, "Task1.1")
+```
