@@ -44,35 +44,44 @@ Task 1 used the raw data text files from: https://github.com/slevkoff/ECON386REP
   Repeat for X_train
 
 ### We only wanted the standard deviation and the mean of the variables in the X_ dataframes, so we used grepl(), to create a logical argument that found "std" and "mean" and only kept those variables. The code use was:
- ```{r} 
+  Create a vector of the variable names of X_test1 and label"Varnames_test1", labeled "Varnames_test1".
+```{r}
   Varnames_test1 <- names(X_test1) 
-    #Creates a vector of the variable names of X_test1 and label"Varnames_test1", labeled "Varnames_test1".
+```
+  Create a vector of the logic argument: if the variable includes "mean" or "std", True; if not, False, labeled "Varnames_test2".
+```{r}
   Varnames_test2 <-  (grepl("mean", Varnames_test1 , fixed=TRUE)|grepl("std", Varnames_test1 , fixed=TRUE)) 
-    #Creates a vector of the logic argument: if the variable includes "mean" or "std", True; if not, False, labeled "Varnames_test2".
+```
+Creates dataframe of X_test1 that contains only the columns from Varnames_test2 that are True, labeled "X_test2".
+```{r}
   X_test2 <- X_test1[,Varnames_test2] 
-     #Creates dataframe of X_test1 that contains only the columns from Varnames_test2 that are True, labeled "X_test2".
- #repeat for X_train
-  ```
+```
+Repeat for X_train
     
-### We combined the test and the train dataframes as well as combine the rows. We also wanted to arrange the observations by Subject and Activity. We used cbind(), rbind(), and arrange() to accomplish this, as follows: 
-    ```{r} 
+### We combined the test and the train dataframes as well as combine the rows. We also wanted to arrange the observations by Subject and Activity. We used cbind(), rbind(), and arrange() to accomplish this, as follows:
+Combine subject_test, y_test, and X_test2, labeled "test"
+ ```{r} 
    test <- cbind(subject_test, y_test, X_test2) 
-      #Combines subject_test, y_test, and X_test2, labeled "test"
-   train <- cbind(subject_train, y_train, X_train2)
-      #Combines subject_train, y_train, and X_train2, labeled "train"
-   Task1.1 <- rbind(train, test) 
-      #Combines train and test, labled Task1.1. This is the merged dataframe.
-    Task1.2 <- Task1.1 %>% arrange(Subject, Activity) 
-      #Arranges the observations by Subject, then by Activity.
-    ```
+```
+Repeat for train dataframes, label "train"
+Combine train and test, labled Task1.1. This is the merged dataframe.
+```{r}
+  Task1.1 <- rbind(train, test) 
+```
+ Arrange the observations by Subject, then by Activity.
+ ```{r}
+  Task1.2 <- Task1.1 %>% arrange(Subject, Activity)
+  ```
+ 
+ 
 
 ### We cleaned the Activity variable values from numerical code to descriptive activity names. The variable was coded 1 through 6, with the respective descriptive values: "WALKING", "WALKING_UPSTAIRS", "WALKING DOWNSTAIRS", "SITTING", "STANDING", AND "LAYING" using the following code:
-    ```{r} 
+    Change the value of the Activity from "1" to "WALKING".
+ ```{r}
    Task1.3 <- Task1.2 #Creates a new dataframe of Task1.2, labeled Task1.3
-    Task1.3$Activity[Task1.3$Activity==1]<- "WALKING" 
-      #Changes the value of the Activity from "1" to "WALKING".
-      #Repeat for 2 through 6
-    ```
+   Task1.3$Activity[Task1.3$Activity==1]<- "WALKING"
+ ```
+   Repeat for 2 through 6
     
 ### To create a new, independent tidy set with only the averages of each variable for each activity and each subject, we used the dplyr package, with the group_by and the summarise_all() functions:
     library(dplyr)
