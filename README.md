@@ -77,12 +77,13 @@ Task 1 used the raw data text files from: https://github.com/slevkoff/ECON386REP
         #Create a new dataframe of Task1.2*, which is grouped by Subject, then by Activity, where the rest of the variables are the               average for each subject and activity.
         * Task1.2 is used instead of Task 1.3 in order to preserve the arrangement of activities.
 ### We added descriptive values for the Activity label for the new tidyset:
-  Task1.4$Activity[Task1.4$Activity==1]<- "WALKING" 
+  ```{r} Task1.4$Activity[Task1.4$Activity==1]<- "WALKING" 
       #Changes the value of the Activity from "1" to "WALKING"
   Task1.4$Activity[Task1.4$Activity==2]<- "WALKING_UPSTAIRS"
   Task1.4$Activity[Task1.4$Activity==3]<- "WALKING_DOWNSTAIRS"
   Task1.4$Activity[Task1.4$Activity==4]<- "SITTING"
   Task1.4$Activity[Task1.4$Activity==5]<- "STANDING"
   Task1.4$Activity[Task1.4$Activity==6]<- "LAYING"
+  ```
 ### We saved the new tidy set, __Task1.4__, using write.table(), as __tidy1.txt__
     write.table(Task1.4, "tidy1.txt", row.names=F, col.names=T, sep="\t", quote=F) 
