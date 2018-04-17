@@ -10,7 +10,7 @@ Task 1 used the raw data text files from: https://github.com/slevkoff/ECON386REP
 
 These files were importe into R using this code:
   filename <- read.table("~/Desktop/filename.txt")
-  *The file path ("~/Desktop/...") may be different if you save the files in a different place. If so, Rstudio will bring back an error.     make sure you provide the right file path with reading the table.
+  *The file path ("~/Desktop/...") may be different if you save the files in a different place. If so, Rstudio will bring back an error.     make sure you provide the right file path with reading the table.*
 
 We changed the variable names for y_test, y_train, subject_test, and subject_train using colnames()
   For the subject_ dataframes, we changed the column name from "V1" to "Subject"
