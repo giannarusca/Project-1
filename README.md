@@ -10,6 +10,7 @@ Task 1 used the raw data text files from: https://github.com/slevkoff/ECON386REP
 
 These files were importe into R using this code:
   filename <- read.table("~/Desktop/filename.txt")
+  
   The file path may be different if you save the files in a different place. If so, Rstudio will bring back an error.     make sure you provide the right file path with reading the table.
 
 We changed the variable names for y_test, y_train, subject_test, and subject_train using colnames()
@@ -19,10 +20,13 @@ We changed the variable names for y_test, y_train, subject_test, and subject_tra
     colnames(dataframe)[colnames(dataframe)=="oldcolumnname"] <- "newcolumnname"
     
 We transposed the dataframe, features, so that it could be used as the column names for the X_ dataframes
+
   first, we created a new features dataframe, called features1:
     features1 <- features
+    
   the first column of this dataframe does not provide meaningful data, so we removed it:
     features1$V1 = NULL
+    
   to transpose the dataframe, we use t() and make it a new dataframe
     features2 <- t(features1)
     
