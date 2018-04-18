@@ -5,7 +5,9 @@ ECON 386 Group 1
 Task 1 files consist of __Cleaning1.Rmd__, which includes the code for task 1, and __tidy1.txt__, which is the tidy dataset, with the variables and data described in the __Codebook.Rmd__
 
 Task 1 used the raw data text files from: https://github.com/slevkoff/ECON386REPO/tree/master/Data%20Cleaning%20Project/Task%201
+  
   The text files used are: __subject_test.txt, subject_train.txt, X_test.txt, X_train.txt, y_test.txt, y_train.txt,__ and __features.txt__.
+  
   We downloaded these files to the desktop of the computer. It is important to know where the files are saved because this will alter the   file path used in line 11.
 
 ### These files were imported into R using this code:
