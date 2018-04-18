@@ -70,6 +70,6 @@ Employees | Workers at plant | numeric
 Heat_coal | Heat content of coal, as a daily average | Megawatt hours (Mwh)
 Heat_oil | Heat content of oil, as a daily average | Megawatt hours (Mwh)
 Heat_gas | Heat content of gas, as a daily average | Megawatt hours (Mwh)
-CAAP1 | binary variable for if the Clean Air Act Phase I restriction were announced yet or not | 0 = no, 1 = yes
+CAAP1 | indicates whether the Clean Air Act Phase I restrictions (1990) were announced yet or not | 0 = no, 1 = yes
 
 *the data provided in __tidy2_a__ is the average of the variables across all years for each plant for the 11-year period. The data provided in __tidy2_b__ is the aggregate of each variable within a particular year across all 92 plants.
