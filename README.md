@@ -70,8 +70,9 @@ Combine train and test, labled Task1.1. This is the merged dataframe.
 ```{r}
   Task1.1 <- rbind(train, test) 
 ```
- Arrange the observations by Subject, then by Activity.
+ Arrange the observations by Subject, then by Activity, using arrange() from dplyr.
  ```{r}
+ library(dplyr)
   Task1.2 <- Task1.1 %>% arrange(Subject, Activity)
   ```
  
