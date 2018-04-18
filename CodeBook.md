@@ -16,7 +16,7 @@ These signals were used to estimate variables of the feature vector for each pat
 Variable | Description 
 -------------- | ------------------------------------------------------ 
 Subject | Number assigned to each of the 30 subjects 
-Activity | Level of activity individual was doing during observation, coded as such: (1: WALKING, 2: WALKING_UPSTAIRDS, 3: WALKING_DOWNSTAIRS, 4: SITTING, 5: STANDING, 6: LAYING) 
+Activity | Level of activity individual was doing during observation, coded in raw data as such: (1: WALKING, 2: WALKING_UPSTAIRDS, 3: WALKING_DOWNSTAIRS, 4: SITTING, 5: STANDING, 6: LAYING) 
 t | time measurement
 f | frequency measurement (HZ)
 Body | relating to body motion (HZ)
