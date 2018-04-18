@@ -66,13 +66,13 @@ Variable | Description | Units
 -------------- | ------------------------------------- | -------------------  
 Year | Year the sample was pooled | numeric
 Plant | The number assoicated with the plant sampled  | numeric
-Electricity | Electricity produced by plant | kWh(millions)
-SO2 | Sulfur dioxide released | short tons
-NO2 | Nitrogen dioxide released | short tons
-Capital stock | Capital associated with plant | Dollars (in millions, 1973 dollars)
+Electricity | Electricity produced by plant | Megawatt hours (Mwh), daily average
+SO2 | Sulfur dioxide released | short tons, daily average
+NO2 | Nitrogen dioxide released | short tons, daily average
+Capital stock | Capital associated with plant | Dollars (in millions, 2017 dollars)
 Employees | Workers at plant | numeric
-Heat_coal | Heat content of coal | Btu (billions)
-Heat_oil | Heat content of oil | Btu (billions)
-Heat_gas | Heat content of gas | Btu (billions)
+Heat_coal | Heat content of coal | Megawatt hours (Mwh), daily average
+Heat_oil | Heat content of oil | Megawatt hours (Mwh), daily average
+Heat_gas | Heat content of gas | Megawatt hours (Mwh), daily average
 CAAP1 | dummy variable for Clean Air Action Plan law | 0 = no, 1 = yes
 
