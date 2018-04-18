@@ -1,8 +1,8 @@
 # Project-1
 ECON 386 Group 1 
 
-## Task 1 Transformations
-Task 1 files consist of __Cleaning1.Rmd__, which includes the code for task 1, and __tidy1.txt__, which is the tidy dataset, with the variables and data described in the __Codebook.Rmd__
+## TASK 1 DOCUMENTATION OF THE CLEANING PROCESS AND RELATED FILES
+Task 1 files consist of __Cleaning1.Rmd__, which includes the code for the transformation of the raw data to the tidy dataset, and __tidy1.txt__, which is the tidy dataset, with the variables and data described in the __Codebook.Rmd__
 
 Task 1 used the raw data text files from: https://github.com/slevkoff/ECON386REPO/tree/master/Data%20Cleaning%20Project/Task%201
   
