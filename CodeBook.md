@@ -1,7 +1,9 @@
 
 # Task 1 CodeBook
 ## Data Collecton Information:
-Human Activity Recognition database built from the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors.The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years by UCI.Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist.
+Task 1 used the raw data text files from: https://github.com/slevkoff/ECON386REPO/tree/master/Data%20Cleaning%20Project/Task%201
+
+Human Activity Recognition database built from the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors.The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years by UCI. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist.
 
 
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
@@ -56,7 +58,10 @@ The variables are composed of the abbreviations as such:
 
 # Task 2 CodeBook
 ## Data Collecton Information:
-Data from coal-fired power plants from 1985-1995. The sample consists of 92 power plants.*
+
+Task 2 used the raw data text files from: https://github.com/slevkoff/ECON386REPO/blob/master/Data%20Cleaning%20Project/Task%202/Panel_8595.Txt 
+
+Data was collected from coal-fired power plants from 1985-1995. The sample consists of 92 power plants.* 
 
 Variable | Description | Units
 -------------- | ------------------------------------- | -------------------  
