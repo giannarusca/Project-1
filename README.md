@@ -101,9 +101,9 @@ Create a new dataframe of Task1.2*, which is grouped by Subject, then by Activit
     write.table(Task1.4, "tidy1.txt", row.names=F, col.names=T, sep="\t", quote=F) 
     
 ## TASK 2 DOCUMENTATION OF THE CLEANING PROCESS AND RELATED FILES
-Task 1 files consist of __Cleaning2.R__, which includes the code for the transformation of the raw data to the tidy dataset, and __tidy2.txt__,__tidy2_a.txt__, and __tidy2_b.txt__, which are the tidy datasets, with the variables and data described in the __Codebook.Rmd__
+Task 2 files consist of __Cleaning2.R__, which includes the code for the transformation of the raw data to the tidy dataset, and __tidy2.txt__,__tidy2_a.txt__, and __tidy2_b.txt__, which are the tidy datasets, with the variables and data described in the __Codebook.Rmd__
 
-Task 1 used the raw data text files from: https://github.com/slevkoff/ECON386REPO/blob/master/Data%20Cleaning%20Project/Task%202/Panel_8595.Txt 
+Task 2 used the raw data text files from: https://github.com/slevkoff/ECON386REPO/blob/master/Data%20Cleaning%20Project/Task%202/Panel_8595.Txt 
   
   The text file used is: __Panel_8595.txt__.
   We downloaded this file to the desktop of the computer. It is important to know where the file is saved because this will alter the   file path.
