@@ -62,14 +62,14 @@ Variable | Description | Units
 -------------- | ------------------------------------- | -------------------  
 Year | Year the sample was pooled | numeric
 Plant | The number assoicated with the plant sampled  | numeric
-Electricity | Electricity produced by plant | Megawatt hours (Mwh), daily average
-SO2 | Sulfur dioxide released | short tons, daily average
-NO2 | Nitrogen dioxide released | short tons, daily average
+Electricity | Electricity produced by plant, as a daily average | Megawatt hours (Mwh)
+SO2 | Sulfur dioxide released, as a daily average | short tons
+NO2 | Nitrogen dioxide released, as a daily average | short tons
 Capital stock | Capital associated with plant | Dollars (in millions, 2017 dollars)
 Employees | Workers at plant | numeric
-Heat_coal | Heat content of coal | Megawatt hours (Mwh), daily average
-Heat_oil | Heat content of oil | Megawatt hours (Mwh), daily average
-Heat_gas | Heat content of gas | Megawatt hours (Mwh), daily average
-CAAP1 | dummy variable for Clean Air Action Plan law | 0 = no, 1 = yes
+Heat_coal | Heat content of coal, as a daily average | Megawatt hours (Mwh)
+Heat_oil | Heat content of oil, as a daily average | Megawatt hours (Mwh)
+Heat_gas | Heat content of gas, as a daily average | Megawatt hours (Mwh)
+CAAP1 | binary variable for if the Clean Air Act Phase I restriction were announced yet or not | 0 = no, 1 = yes
 
 *the data provided in __tidy2_a__ is the average of the variables across all years for each plant for the 11-year period. The data provided in __tidy2_b__ is the aggregate of each variable within a particular year across all 92 plants.
