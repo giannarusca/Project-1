@@ -105,8 +105,8 @@ Task 1 files consist of __Cleaning2.R__, which includes the code for the transfo
 
 Task 1 used the raw data text files from: https://github.com/slevkoff/ECON386REPO/blob/master/Data%20Cleaning%20Project/Task%202/Panel_8595.Txt 
   
-  The text files used are: __Panel_8595.txt__.
-  We downloaded this files to the desktop of the computer. It is important to know where the file is saved because this will alter the   file path.
+  The text file used is: __Panel_8595.txt__.
+  We downloaded this file to the desktop of the computer. It is important to know where the file is saved because this will alter the   file path.
 
 ### These files were imported into R using this code*:
  ```{r} 
