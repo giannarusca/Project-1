@@ -1,5 +1,5 @@
 # Project-1
-ECON 386 Group 1 
+ECON 386 Group 1 : Katherine Stolin, Gianna Rusca, Liam Burke, Nora Cheikh, and Josue Courtey
 
 ## TASK 1 DOCUMENTATION OF THE CLEANING PROCESS AND RELATED FILES
 Task 1 files consist of __Cleaning1.Rmd__, which includes the code for the transformation of the raw data to the tidy dataset, and __tidy1.txt__, which is the tidy dataset, with the variables and data described in the __Codebook.Rmd__
@@ -89,7 +89,7 @@ Combine train and test, labled Task1.1. This is the merged dataframe.
 ### To create a new, independent tidy set with only the averages of each variable for each activity and each subject, we used the dplyr package, with the group_by and the summarise_all() functions:
 Create a new dataframe of Task1.2*, which is grouped by Subject, then by Activity, where the rest of the variables are the               average for each subject and activity.
 ```{r}
-    library(dplyr)
+    library(dplyr) #used above as well, not necessary to load again
     Task1.4 <- Task1.2 %>% group_by(Subject, Activity) %>% summarise_all(funs(mean))
 ```
 * Task1.2 is used instead of Task 1.3 in order to preserve the arrangement of activities.
