@@ -1,5 +1,5 @@
 # Project-1
-ECON 386 Group 1 : Katherine Stolin, Gianna Rusca, Liam Burke, Nora Cheikh, and Josue Courtey
+## ECON 386 Group 1 : Katherine Stolin, Gianna Rusca, Liam Burke, Nora Cheikh, and Josue Courtey
 
 ## TASK 1 DOCUMENTATION OF THE CLEANING PROCESS AND RELATED FILES
 Task 1 files consist of __Cleaning1.Rmd__, which includes the code for the transformation of the raw data to the tidy dataset, and __tidy1.txt__, which is the tidy dataset, with the variables and data described in the __Codebook.Rmd__
