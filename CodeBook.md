@@ -20,7 +20,7 @@ Activity | Level of activity individual was doing during observation (WALKING, W
 t | time measurement
 f | frequency measurement (HZ)
 Body | relating to body motion (HZ)
-Gravity | relating to the acceleration (| SI)SI)
+Gravity | relating to the acceleration | SI)SI)
 Acc |  relating to triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration (MPS)
 Gyro |  relating to triaxial angular velocity from the gyroscope 
 Jerk: | T relating to sudden movement, calculated using the body linear acceleration and angular velocity derived in time
@@ -65,7 +65,7 @@ Plant | The number assoicated with the plant sampled  | numeric
 Electricity | Electricity produced by plant, as a daily average | Megawatt hours (Mwh)
 SO2 | Sulfur dioxide released, as a daily average | short tons
 NO2 | Nitrogen dioxide released, as a daily average | short tons
-Capital stock | Capital associated with plant | Dollars (in millions, 2017 dollars)
+Capital_Stock | Capital associated with plant | Dollars (in millions, 2017 dollars)
 Employees | Workers at plant | numeric
 Heat_coal | Heat content of coal, as a daily average | Megawatt hours (Mwh)
 Heat_oil | Heat content of oil, as a daily average | Megawatt hours (Mwh)
