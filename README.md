@@ -11,7 +11,7 @@ Task 1 used the raw data text files from: https://github.com/slevkoff/ECON386REP
   We downloaded these files to the desktop of the computer. It is important to know where the files are saved because this will alter the   file path.
 
 ### These files were imported into R using this code:
- ```{r} 
+```{r} 
   filename <- read.table("~/Desktop/filename.txt")
 ```
   The file path may be different if you save the files in a different place. If so, Rstudio will bring back an error.     make sure you provide the right file path with reading the table.
@@ -20,29 +20,29 @@ Task 1 used the raw data text files from: https://github.com/slevkoff/ECON386REP
  For the subject_ dataframes, we changed the column name from "V1" to "Subject"
   For the y_ dataframes, we changed the column name from "V1" to "Activity"
     We used the following code:
- ```{r} 
+```{r} 
     colnames(dataframe)[colnames(dataframe)=="oldcolumnname"] <- "newcolumnname"
 ```  
 ### We transposed the dataframe, features, so that it could be used as the column names for the X_ dataframes
   
   first, we created a new features dataframe, called features1:
-  ```{r}
+```{r}
     features1 <- features
-  ```
+```
   the first column of this dataframe does not provide meaningful data, so we removed it:
-  ```{r}
+```{r}
     features1$V1 = NULL
-  ```
+```
   to transpose the dataframe, we use t() and make it a new dataframe
-  ```{r}
+```{r}
     features2 <- t(features1)
- ```
+```
     
 ### We used the features2 dataframe to change the variable names of the X_ dataframes using the following code using colnames():
-   ```{r} 
+```{r} 
   X_test1 <- X_test 
   colnames(X_test1) <- features2[1, ]
-  ```
+```
   Repeat for X_train
 
 ### We only wanted the standard deviation and the mean of the variables in the X_ dataframes, so we used grepl(), to create a logical argument that found "std" and "mean" and only kept those variables. The code use was:
@@ -62,7 +62,7 @@ Repeat for X_train
     
 ### We combined the test and the train dataframes as well as combine the rows. We also wanted to arrange the observations by Subject and Activity. We used cbind(), rbind(), and arrange() to accomplish this, as follows:
 Combine subject_test, y_test, and X_test2, labeled "test"
- ```{r} 
+```{r} 
    test <- cbind(subject_test, y_test, X_test2) 
 ```
 Repeat for train dataframes, label "train"
@@ -71,10 +71,10 @@ Combine train and test, labled Task1.1. This is the merged dataframe.
   Task1.1 <- rbind(train, test) 
 ```
  Arrange the observations by Subject, then by Activity, using arrange() from dplyr.
- ```{r}
+```{r}
  library(dplyr)
   Task1.2 <- Task1.1 %>% arrange(Subject, Activity)
-  ```
+```
  
  
 
@@ -95,12 +95,13 @@ Create a new dataframe of Task1.2*, which is grouped by Subject, then by Activit
 * Task1.2 is used instead of Task 1.3 in order to preserve the arrangement of activities.
 ### We added descriptive values for the Activity label for the new tidyset:
   Change the value of the Activity from "1" to "WALKING"; same process used as in Task 1.3, repeat for 2 through 6.
-  ```{r} 
+```{r} 
   Task1.4$Activity[Task1.4$Activity==1]<- "WALKING"   
-  ```
+```
 ### We saved the new tidy set, __Task1.4__, using write.table(), as __tidy1.txt__
+```{r}
     write.table(Task1.4, "tidy1.txt", row.names=F, col.names=T, sep="\t", quote=F) 
-    
+```    
 ## TASK 2 DOCUMENTATION OF THE CLEANING PROCESS AND RELATED FILES
 Task 2 files consist of __Cleaning2.R__, which includes the code for the transformation of the raw data to the tidy dataset, and __tidy2.txt__,__tidy2_a.txt__, and __tidy2_b.txt__, which are the tidy datasets, with the variables and data described in the __Codebook.Rmd__
 
@@ -110,7 +111,7 @@ Task 2 used the raw data text files from: https://github.com/slevkoff/ECON386REP
   We downloaded this file to the desktop of the computer. It is important to know where the file is saved because this will alter the   file path.
 
 ### These files were imported into R using this code*:
- ```{r} 
+```{r} 
   task2data <- read.table("~/Desktop/Panel_8595.txt", skip=2)
 ```
 *The file path may be different if you save the files in a different place. If so, Rstudio will bring back an error. Make sure you provide the right file path with reading the table. "skip=2" is used to remove unnecessary headers in the text file.
@@ -174,7 +175,7 @@ task2data.1$Heat_gas <- (task2data$Heat_gas*0.00000029)/365
 ```
 *we used the conversions: 1 kwh = 0.001 Mwh and 1 btu = 0.00000029 Mwh
 
-### We converted the pollutant qualities of SO2 and NOx as daily averages
+### We converted the pollutant qualities of __SO2__ and __NOx__ as daily averages
 ```{r}
 task2data.1$SO2 <- (task2data.1$SO2)/365
 task2data.1$NOx <- (task2data.1$NOx)/365
@@ -191,7 +192,7 @@ write.table(task2data.1, "tidy2.txt", row.names=F, col.names=T, sep="\t", quote=
 ```{r}
 Panel_8595.2a <- task2data.1 %>% group_by(Plant) %>% summarise_all(funs(mean))
 ```
-### We saved this dataset as "tidy2_a.txt"
+### We saved this dataset as __"tidy2_a.txt"__
 ```{r}
 write.table(Panel_8595.2a, "tidy2_a.txt", row.names=F, col.names=T, sep="\t", quote=F)
 ```
@@ -200,7 +201,7 @@ write.table(Panel_8595.2a, "tidy2_a.txt", row.names=F, col.names=T, sep="\t", qu
 ```{r}
 Panel_8595.2b <- task2data.1 %>% group_by(Year) %>% summarise_all(funs(sum))
 ```
-### We saved this dataset as "tidy2_b.txt"
+### We saved this dataset as __"tidy2_b.txt"__
 ```{r}
 write.table(Panel_8595.2b, "tidy2_b.txt", row.names=F, col.names=T, sep="\t", quote=F)
 ```
