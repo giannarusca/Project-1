@@ -75,6 +75,8 @@ train <- cbind(subject_train, y_train, X_train2)
 ```{r}
 Task1.1 <- rbind(train, test) 
 #Combines train and test, labled Task1.1. This is the merged dataframe.
+library(dplyr)
+# need to load dplyr for arrange()
 Task1.2 <- Task1.1 %>% arrange(Subject, Activity) 
 #Arranges the observations by Subject, then by Activity.
 ```
