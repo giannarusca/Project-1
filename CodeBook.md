@@ -3,8 +3,8 @@ output:
   html_document: default
   pdf_document: default
 ---
-#Task 1 CodeBook
-##Data Collecton Information:
+# Task 1 CodeBook
+## Data Collecton Information:
 Human Activity Recognition database built from the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors.The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years by UCI.Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist.
 
 
@@ -58,8 +58,8 @@ fBodyGyroJerkMag
 
 
 
-#Task 2 CodeBook
-##Data Collecton Information:
+# Task 2 CodeBook
+## Data Collecton Information:
 Data from coal-fired power plants from 1985-1995. The sample consists of 92 power plants. 
 
 Variable | Description | Units
