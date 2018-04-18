@@ -76,4 +76,4 @@ Heat_oil | Heat content of oil | Megawatt hours (Mwh), daily average
 Heat_gas | Heat content of gas | Megawatt hours (Mwh), daily average
 CAAP1 | dummy variable for Clean Air Action Plan law | 0 = no, 1 = yes
 
-* the data provided in tidy2_a is the average of the variables across all years for each plant for the 11-year period. the data provided in tidy2_b is the aggregate of each variable within a particular year across all 92 plants.
+*the data provided in tidy2_a is the average of the variables across all years for each plant for the 11-year period. the data provided in tidy2_b is the aggregate of each variable within a particular year across all 92 plants.
