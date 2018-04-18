@@ -8,7 +8,7 @@ Task 1 used the raw data text files from: https://github.com/slevkoff/ECON386REP
   The text files used are: __subject_test.txt, subject_train.txt, X_test.txt, X_train.txt, y_test.txt, y_train.txt,__ and __features.txt__.
   We downloaded these files to the desktop of the computer. It is important to know where the files are saved because this will alter the   file path used in line 11.
 
-### These files were importe into R using this code:
+### These files were imported into R using this code:
  ```{r} 
   filename <- read.table("~/Desktop/filename.txt")
 ```
@@ -76,7 +76,7 @@ Combine train and test, labled Task1.1. This is the merged dataframe.
  
 
 ### We cleaned the Activity variable values from numerical code to descriptive activity names. The variable was coded 1 through 6, with the respective descriptive values: "WALKING", "WALKING_UPSTAIRS", "WALKING DOWNSTAIRS", "SITTING", "STANDING", AND "LAYING" using the following code:
-    Change the value of the Activity from "1" to "WALKING".
+ Change the value of the Activity from "1" to "WALKING".
  ```{r}
    Task1.3 <- Task1.2 #Creates a new dataframe of Task1.2, labeled Task1.3
    Task1.3$Activity[Task1.3$Activity==1]<- "WALKING"
@@ -84,14 +84,16 @@ Combine train and test, labled Task1.1. This is the merged dataframe.
    Repeat for 2 through 6
     
 ### To create a new, independent tidy set with only the averages of each variable for each activity and each subject, we used the dplyr package, with the group_by and the summarise_all() functions:
+Create a new dataframe of Task1.2*, which is grouped by Subject, then by Activity, where the rest of the variables are the               average for each subject and activity.
+```{r}
     library(dplyr)
-    Task1.4 <- Task1.2 %>% group_by(Subject, Activity) %>% summarise_all(funs(mean)) 
-        #Create a new dataframe of Task1.2*, which is grouped by Subject, then by Activity, where the rest of the variables are the               average for each subject and activity.
-        * Task1.2 is used instead of Task 1.3 in order to preserve the arrangement of activities.
+    Task1.4 <- Task1.2 %>% group_by(Subject, Activity) %>% summarise_all(funs(mean))
+```
+* Task1.2 is used instead of Task 1.3 in order to preserve the arrangement of activities.
 ### We added descriptive values for the Activity label for the new tidyset:
+  Change the value of the Activity from "1" to "WALKING"; same process used as in Task 1.3, repeat for 2 through 6.
   ```{r} 
-  Task1.4$Activity[Task1.4$Activity==1]<- "WALKING" 
-      #Changes the value of the Activity from "1" to "WALKING"; same process used as in Task 1.3
+  Task1.4$Activity[Task1.4$Activity==1]<- "WALKING"   
   ```
 ### We saved the new tidy set, __Task1.4__, using write.table(), as __tidy1.txt__
     write.table(Task1.4, "tidy1.txt", row.names=F, col.names=T, sep="\t", quote=F) 
