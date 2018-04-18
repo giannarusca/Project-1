@@ -73,5 +73,6 @@ Capital stock | Capital associated with plant | Dollars (in millions, 1973 dolla
 Employees | Workers at plant | numeric
 Heat_coal | Heat content of coal | Btu (billions)
 Heat_oil | Heat content of oil | Btu (billions)
+Heat_gas | Heat content of gas | Btu (billions)
 CAAP1 | dummy variable for Clean Air Action Plan law | 0 = no, 1 = yes
 
