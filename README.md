@@ -8,7 +8,7 @@ Task 1 used the raw data text files from: https://github.com/slevkoff/ECON386REP
   
   The text files used are: __subject_test.txt, subject_train.txt, X_test.txt, X_train.txt, y_test.txt, y_train.txt,__ and __features.txt__.
   
-  We downloaded these files to the desktop of the computer. It is important to know where the files are saved because this will alter the   file path used in line 11.
+  We downloaded these files to the desktop of the computer. It is important to know where the files are saved because this will alter the   file path.
 
 ### These files were imported into R using this code:
  ```{r} 
@@ -99,3 +99,107 @@ Create a new dataframe of Task1.2*, which is grouped by Subject, then by Activit
   ```
 ### We saved the new tidy set, __Task1.4__, using write.table(), as __tidy1.txt__
     write.table(Task1.4, "tidy1.txt", row.names=F, col.names=T, sep="\t", quote=F) 
+    
+## TASK 2 DOCUMENTATION OF THE CLEANING PROCESS AND RELATED FILES
+Task 1 files consist of __Cleaning2.R__, which includes the code for the transformation of the raw data to the tidy dataset, and __tidy2.txt__,__tidy2_a.txt__, and __tidy2_b.txt__, which are the tidy datasets, with the variables and data described in the __Codebook.Rmd__
+
+Task 1 used the raw data text files from: https://github.com/slevkoff/ECON386REPO/blob/master/Data%20Cleaning%20Project/Task%202/Panel_8595.Txt 
+  
+  The text files used are: __Panel_8595.txt__.
+  We downloaded this files to the desktop of the computer. It is important to know where the file is saved because this will alter the   file path.
+
+### These files were imported into R using this code*:
+ ```{r} 
+  task2data <- read.table("~/Desktop/Panel_8595.txt", skip=2)
+```
+*The file path may be different if you save the files in a different place. If so, Rstudio will bring back an error. Make sure you provide the right file path with reading the table. "skip=2" is used to remove unnecessary headers in the text file.
+
+### We first loaded the necessary packages, they may need to be installed first:
+```{r}
+library(plyr)
+library(dplyr)
+library(ggplot2)
+```
+### We renames the columns
+```{r}
+names(task2data) <- c("x", "x.1","x.2", "x.3", "x.4", "x.5", "x.6", "x.7", "x.8", "x.9", "x.10", "x.11", "x.12")
+```
+### We removed an unnecessary column
+```{r}
+task2data$x.1 = NULL
+```
+### We renamed the first two columns
+```{r}
+colnames(task2data)[colnames(task2data)=="x"] <- "Plant"
+colnames(task2data)[colnames(task2data)=="x.2"] <- "Year"
+```
+### In order to rename the other variables, we needed to find the means by year and compare to the paper concerning the data:
+```{r}
+means <- ddply(task2data, "x.3", summarise, meanx.3=mean(x.3))
+means
+```
+we renamed the column with the corresponding variable name
+```{r}
+colnames(task2data)[colnames(task2data)=="x.3"] <- "Electricity"
+```
+The process was repeated for: 
+* x.4 -> "SO2"
+* x.5 -> "NOx"
+* x.6 -> "Capital_Stock"
+* x.7 -> "Employees"
+* x.8 -> "Heat_coal"
+* x.9 -> "Heat_oil"
+* x.10 -> "Heat_gas"
+
+### We removed x.11 and x.12 because they did not contain necessary information for this project:
+```{r}
+task2data$x.11 = NULL
+task2data$x.12 = NULL
+```
+### This dataset was save as a table, using write.table()
+```{r}
+write.table(task2data, "task2data.txt", row.names=F, col.names=T, sep="\t", quote=F)
+```
+### New dataframe was created before converting the measurements of the variables
+```{r}
+task2data.1 <- task2data 
+```
+### We converted the energy measurements for __Electricity__,__Heat_coal__,__Heat_oil__, and __Heat_gas__ into Mwh and daily averages
+```{r}
+task2data.1$Electricity <- (task2data$Electricity*0.001)/365
+task2data.1$Heat_coal <- (task2data$Heat_coal*0.00000029)/365
+task2data.1$Heat_oil <- (task2data$Heat_oil*0.00000029)/365
+task2data.1$Heat_gas <- (task2data$Heat_gas*0.00000029)/365
+```
+*we used the conversions: 1 kwh = 0.001 Mwh and 1 btu = 0.00000029 Mwh
+
+### We converted the pollutant qualities of SO2 and NOx as daily averages
+```{r}
+task2data.1$SO2 <- (task2data.1$SO2)/365
+task2data.1$NOx <- (task2data.1$NOx)/365
+```
+### We created  a binary variable which indicates if the Clean Air Act Phase I restrictions had been announced yet (1=yes, 0=no)
+```{r}
+task2data.1$CAAP1 <- as.numeric(task2data$Year>=90)
+```
+### We saved this tidy set as __"tidy2.txt"__
+```{r}
+write.table(task2data.1, "tidy2.txt", row.names=F, col.names=T, sep="\t", quote=F)
+```
+### We created a subset of Panel_8595.1 which averages all of the variables across all years for each plant for the 11 year period, called Panel_8595.2a
+```{r}
+Panel_8595.2a <- task2data.1 %>% group_by(Plant) %>% summarise_all(funs(mean))
+```
+### We saved this dataset as "tidy2_a.txt"
+```{r}
+write.table(Panel_8595.2a, "tidy2_a.txt", row.names=F, col.names=T, sep="\t", quote=F)
+```
+
+### We created a subset of Panel_8595.1 which adds all of the variables within a particular year across all 92 plants, called Panel_8595.2b
+```{r}
+Panel_8595.2b <- task2data.1 %>% group_by(Year) %>% summarise_all(funs(sum))
+```
+### We saved this dataset as "tidy2_b.txt"
+```{r}
+write.table(Panel_8595.2b, "tidy2_b.txt", row.names=F, col.names=T, sep="\t", quote=F)
+```
